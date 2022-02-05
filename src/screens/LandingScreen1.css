@@ -1,0 +1,29 @@
+#zero{
+    /* background-color: red; */
+    display: flex;
+    height: 200;
+}
+
+#one{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 50px;
+    margin-bottom: 15px;
+}
+
+#one text{
+    font-family: "Helvetica";
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#subone{
+    font-size: 50px;
+    font-family: "Helvetica";
+    text-decoration: none;
+    color: black;
+}
