@@ -7,9 +7,13 @@
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
+    flex-direction: row;
     display: flex;
-    justify-content: space-between;
-    padding: 15px;
+    justify-content: center;
+    /* padding: 15px; */
+    top: 15px;
+    position: relative;
+    align-items: center;
 }
 
 nav img{

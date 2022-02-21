@@ -1,0 +1,2 @@
+[0218/030520.598:INFO:CONSOLE(1)] "Hiding message due to error: CActionControl::Get failed with error: -25920 msg: error: -25920 message: Could not complete your request because a command was not available.", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202021%20(Prerelease)/Required/www-butler/build/spaces.js (1)
+[0218/030525.664:ERROR:media_internals.cc(112)] Cannot get RenderProcessHost
