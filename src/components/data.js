@@ -9,14 +9,14 @@ export const Data = [
     },
     {
         heading: "How we help you collaborate easily?",
-        sub: "We are a platform specifically designed to connect Artists of different genre together, such that they can easily find "
+        sub: "First of all, the basic thing is this platform is specifically meant for collaboration, so here you will find only those guys who are willing to collaborate. You can find artists for collaboration according to their skillset and availability. We make sure that your collab request is given enough time to read and think about it."
     },
     {
         heading: "How are we different from other platforms?",
-        sub: "Millions of developers and companies build, ship, and maintain their software on GitHub—the largest and most advanced development platform in the world."
+        sub: "First of all, it is specifically designed and built for collaboration between artists. And we have made sure that silly trends do not take away the reach that artists deserve on our platform, which is specifically designed for artists. Every artist's work will be displayed in that particular cummunities posts section and we have designed our algorithm in such a way that your artwork reaches as many people as possible irrespective of the time you post. Our algorithm is designed in such a way that will make your searching process very, very easy."
     },
     {
         heading: "What else to expect from this platform?",
-        sub: "Millions of developers and companies build, ship, and maintain their software on GitHub—the largest and most advanced development platform in the world."
+        sub: "Here we will be conducting weekly events in which you can win prizes. You will have a forum where you can post your queries and get them answered from your community. You will get to learn new thing and will be exposed to different art which will give you new inspirations to work on. You will get vast exposure from viewers and fellow artists."
     }
 ]

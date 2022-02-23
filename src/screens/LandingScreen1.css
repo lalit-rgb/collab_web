@@ -1,7 +1,7 @@
 .zero{
     /* background-color: red; */
     display: flex;
-    /* flex-direction: row; */
+    flex-direction: row;
     /* height: 200; */
 }
 
@@ -29,9 +29,11 @@
     color: black;
     margin-bottom: 15px;
 }
+
 .formwrapper{
     width: 100%;
 }
+
 #form1{
     padding: 10px 20px;
     border: 0px;
@@ -59,18 +61,80 @@
     display: flex;
 }
 
-@media screen and (max-width: 600px) {   
+@media (max-width: 1007px) {   
     .zero{
         /* background-color: red; */
-        display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        /* justify-content: center;
+        align-items: center; */
         /* height: 200; */
     }
-    #one{
-        display: flex;
+    .btn{
         flex-direction: column;
-        justify-content: center;
-        padding: 0 45px;
+    }
+    #form1{
+        width: 70%;
+    }
+    #form2{
+        width: 30%;
+    }
+    #one{
+        padding: 0 20px;
+    }
+    #one text{
+        font-family: "Helvetica";
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+        margin-top: 15px;
         margin-bottom: 15px;
     }
+    
+    #subone{
+        font-size: 30px;
+        font-family: "Helvetica";
+        text-decoration: none;
+        color: black;
+        margin-bottom: 15px;
+    }
+    
+}
+@media (max-width: 640px) {   
+    .zero{
+        /* background-color: red; */
+        flex-direction: column-reverse;
+        /* height: 200; */
+    }
+    .btn{
+        flex-direction: column;
+    }
+    #form1{
+        width: 70%;
+    }
+    #form2{
+        width: 30%;
+    }
+    #one{
+        padding: 0 20px;
+    }
+    #one text{
+        font-family: "Helvetica";
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    #subone{
+        font-size: 30px;
+        font-family: "Helvetica";
+        text-decoration: none;
+        color: black;
+        margin-bottom: 15px;
+    }
+    /* #two{
+        padding-left: 10px;
+        padding-right: 10px;
+    } */
 }

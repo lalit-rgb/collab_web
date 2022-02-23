@@ -83,12 +83,16 @@ function Cloud({ count = 4, radius = 20 }) {
   }, [count, radius])
   return words.map(([pos, word], index) => <Word key={index} position={pos} children={word} />)
 }
-
 const Art3d = () => {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  const [x, setx] = useState(0)
+  useEffect(() => {
+      var y = windowDimensions.width > windowDimensions.height ? windowDimensions.height : windowDimensions.width;
+      setx(y);
+  }, [windowDimensions])
   return (
     <div >
-      <Canvas style={{width: windowDimensions.height, height: windowDimensions.height-72}} dpr={[1, 2]} camera={{ position: [0, 0, 35], fov: 90 }}>
+      <Canvas style={{width: x, height: x-72}} dpr={[1, 2]} camera={{ position: [0, 0, 35], fov: 90 }}>
         <fog attach="fog" args={['#f5f5f5', 0, 80]} />
         <Cloud count={9} radius={20} />
         <TrackballControls />

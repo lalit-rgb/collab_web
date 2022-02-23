@@ -60,7 +60,7 @@ const LandingScreen1 = () => {
     }
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     return(
-        <div>
+        <>
             <Navigation />
         <div className="zero">
             <div id="one">
@@ -72,18 +72,19 @@ const LandingScreen1 = () => {
                             <button id="form2" type="submit" onClick={Submit}>submit</button>
                         </form>
                         {/* <Mui /> */}
+                        <i style={{"fontSize" : "15px", "marginTop" : "5px", "marginLeft" : "8px" }}>please submit your email to get early access</i>
                     </div>
                     <div onClick={() => {setischecked(false);setTimeout(() => {next()}, 500)}}>
                         <Button />
                     </div>
                 </div>
-                <i style={{"fontSize" : "15px", "marginTop" : "5px", "marginLeft" : "8px" }}>please submit your email to get early access</i>
+                
             </div>
             <div id="two">
                 <Art3d />
             </div>    
         </div>
-        </div>
+        </>
     )
     
 }
