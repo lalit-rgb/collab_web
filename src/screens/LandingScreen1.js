@@ -5,7 +5,6 @@ import Navigation from "../components/navigation";
 import Api from "../node/ex"
 import Button from "../components/button";
 import { Data } from "../components/data";
-import Mui from "../components/test";
 import Grow from "@material-ui/core/Grow";
 
 function getWindowDimensions() {
@@ -24,7 +23,7 @@ const LandingScreen1 = () => {
     const [ischecked, setischecked] = useState(true)
 
     useEffect(()=>{
-        Api.get("/api").then((response) => setData(response.data.message))
+        Api.get("/").then((response) => setData(response.data.message))
 
     })
 
@@ -35,7 +34,8 @@ const LandingScreen1 = () => {
         }
     }, [submit])
     const Submit = () => {
-        Setsubmit(true)
+        Api.post("/email", {email: input})
+        console.log(input)
     }
 
     const next = () =>{
@@ -53,7 +53,7 @@ const LandingScreen1 = () => {
             <Grow in={ischecked} >
                 <div style={{"marginBottom" : '15px'}}>
                     <h1 id="subone" >{Data[i].heading}</h1>
-                    <text>{Data[i].sub}</text>
+                    <p className="subtext">{Data[i].sub}</p>
                 </div>
             </Grow>
         )
@@ -66,13 +66,13 @@ const LandingScreen1 = () => {
             <div id="one">
                 {textwala()}
                 <div className="btn">
-                    <div class="formwrapper">
-                        <form>
-                            <input id="form1" type="email" placeholder="example@gmail.com" name="email" required value={input} onInput={e => setInput(e.target.value)} />
-                            <button id="form2" type="submit" onClick={Submit}>submit</button>
+                    <div className="formwrapper">
+                        <form onSubmit={Submit}>
+                            <input id="form1" type="email" placeholder="example@gmail.com" name="email" required value={input} onChange={e => setInput(e.target.value)} />
+                            <button id="form2" type="submit">submit</button>
                         </form>
                         {/* <Mui /> */}
-                        <i style={{"fontSize" : "15px", "marginTop" : "5px", "marginLeft" : "8px" }}>please submit your email to get early access</i>
+                        <i className="subtext" style={{"fontSize" : "15px", "marginTop" : "5px", "marginLeft" : "8px" }}>please submit your email to get early access</i>
                     </div>
                     <div onClick={() => {setischecked(false);setTimeout(() => {next()}, 500)}}>
                         <Button />

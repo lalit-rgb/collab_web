@@ -2,7 +2,7 @@ import './navigation.css'
 import logo from '../assets/manbgO.png'
 const Navigation =() => {
     return(
-        <div class='nav-wrapper'>
+        <div className='nav-wrapper'>
             <nav>
                 <img src={logo} alt="" height={70} width={80}/>
                 {/* <a href="">Why My Art Nation?</a>
