@@ -7,35 +7,54 @@ import Button from "../components/button";
 import { Data } from "../components/data";
 import Grow from "@material-ui/core/Grow";
 
-function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height
-    };
-  }
+// function getWindowDimensions() {
+//     const { innerWidth: width, innerHeight: height } = window;
+//     return {
+//       width,
+//       height
+//     };
+//   }
 
 const LandingScreen1 = () => {
-    const [data , setData] = useState(null)
-    const [submit, Setsubmit] = useState(false);
+    // const [submit, Setsubmit] = useState(false);
     const [input, setInput] = useState('')
     var [i , seti] = useState(0);
     const [ischecked, setischecked] = useState(true)
 
-    useEffect(()=>{
-        Api.get("/").then((response) => setData(response.data.message))
+    // useEffect(()=>{
+    //     Api.get("/").then((response) => setData(response.data.message))
 
-    })
+    // })
 
-    useEffect(() => {
-        if(submit) {
-            Api.post("/email", {email: input})
-            Setsubmit(false)
+    // useEffect(() => {
+    //     if(submit) {
+    //         Api.post("/email", {email: input})
+    //         Setsubmit(false)
+    //     }
+    // }, [submit])
+    const Submit = async () => {
+        try{
+            console.log(input)
+            Api.post("/email", {email: input}).catch(function (error) {
+                if (error.response) {
+                  // Request made and server responded
+                  console.log(error.response.data);
+                  console.log(error.response.status);
+                  console.log(error.response.headers);
+                } else if (error.request) {
+                  // The request was made but no response was received
+                  console.log(error.request);
+                } else {
+                  // Something happened in setting up the request that triggered an Error
+                  console.log('Error', error.message);
+                }
+            
+              })
+            
         }
-    }, [submit])
-    const Submit = () => {
-        Api.post("/email", {email: input})
-        console.log(input)
+        catch(err){
+            console.log(err)
+        }
     }
 
     const next = () =>{
@@ -58,7 +77,7 @@ const LandingScreen1 = () => {
             </Grow>
         )
     }
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+    // const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     return(
         <>
             <Navigation />
@@ -67,9 +86,9 @@ const LandingScreen1 = () => {
                 {textwala()}
                 <div className="btn">
                     <div className="formwrapper">
-                        <form onSubmit={Submit}>
+                        <form >
                             <input id="form1" type="email" placeholder="example@gmail.com" name="email" required value={input} onChange={e => setInput(e.target.value)} />
-                            <button id="form2" type="submit">submit</button>
+                            <button id="form2" onClick={()=>{Submit()}}>submit</button>
                         </form>
                         {/* <Mui /> */}
                         <i className="subtext" style={{"fontSize" : "15px", "marginTop" : "5px", "marginLeft" : "8px" }}>please submit your email to get early access</i>

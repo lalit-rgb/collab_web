@@ -2,7 +2,6 @@ import * as THREE from 'three'
 import { useRef, useState, useMemo, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Text, TrackballControls } from '@react-three/drei'
-import randomWord from 'random-words'
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
