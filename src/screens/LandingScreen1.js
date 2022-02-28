@@ -92,11 +92,13 @@ const LandingScreen1 = () => {
                 {textwala()}
                 <div className="btn">
                     <div className="formwrapper">
-                            <input id="form1" type="email" placeholder="example@gmail.com" name="email" required value={input.current.value} ref={input} />
+                    <input id="form1" type="email" placeholder="example@gmail.com" name="email" required value={input.current.value} ref={input} />
                             <button id="form2" onClick={Submit}>submit</button>
+                            <br />
+                            <i className="subtext" style={{"fontSize" : "15px", "marginTop" : "5px", "marginLeft" : "8px" }}>please submit your email to get early access</i>
                         {/* <Mui /> */}
-                        <i className="subtext" style={{"fontSize" : "15px", "marginTop" : "5px", "marginLeft" : "8px" }}>please submit your email to get early access</i>
                     </div>
+                    
                     <div onClick={() => {setischecked(false);setTimeout(() => {next()}, 500)}}>
                         <Button />
                     </div>
