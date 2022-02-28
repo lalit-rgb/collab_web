@@ -1,8 +1,7 @@
-import React,{useState, useEffect} from "react";
+import React,{useState, useRef ,useEffect} from "react";
 import Art3d from "../components/art3d";
 import './LandingScreen1.css'
 import Navigation from "../components/navigation";
-import Api from "../node/ex"
 import Button from "../components/button";
 import axios from "axios";
 import { Data } from "../components/data";
@@ -15,9 +14,6 @@ import Grow from "@material-ui/core/Grow";
 //       height
 //     };
 //   }
-var api = axios.create({
-    baseURL: `http://77.243.85.175:3001`
-  });
 let axiosConfig = {
     headers: {
         'Content-Type' : 'application/json; charset=UTF-8',
@@ -28,7 +24,7 @@ let axiosConfig = {
   };
 const LandingScreen1 = () => {
     // const [submit, Setsubmit] = useState(false);
-    const [input, setInput] = useState('')
+    const input = useRef('')
     var [i , seti] = useState(0);
     const [ischecked, setischecked] = useState(true)
 
@@ -46,17 +42,16 @@ const LandingScreen1 = () => {
     const Submit = async() => {
         try{
 
-            console.log(input)
+            // console.log(input.current.value)
             axios({
                 method: 'post',
                 url: 'http://77.243.85.175:3001/email',
                 headers: axiosConfig,
-                data: {email: input}
+                data: {email: input.current.value}
             })
             .then((res) => {
                 const message = res.data;
-                alert(message);
-          
+                alert("Thankyou!!")
           
           
             })
@@ -97,10 +92,8 @@ const LandingScreen1 = () => {
                 {textwala()}
                 <div className="btn">
                     <div className="formwrapper">
-                        <form >
-                            <input id="form1" type="email" placeholder="example@gmail.com" name="email" required value={input} onChange={e => setInput(e.target.value)} />
-                            <button id="form2" onClick={()=>{Submit()}}>submit</button>
-                        </form>
+                            <input id="form1" type="email" placeholder="example@gmail.com" name="email" required value={input.current.value} ref={input} />
+                            <button id="form2" onClick={Submit}>submit</button>
                         {/* <Mui /> */}
                         <i className="subtext" style={{"fontSize" : "15px", "marginTop" : "5px", "marginLeft" : "8px" }}>please submit your email to get early access</i>
                     </div>
