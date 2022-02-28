@@ -15,7 +15,17 @@ import Grow from "@material-ui/core/Grow";
 //       height
 //     };
 //   }
-
+var api = axios.create({
+    baseURL: `http://77.243.85.175:3001`
+  });
+let axiosConfig = {
+    headers: {
+        'Content-Type' : 'application/json; charset=UTF-8',
+        'Accept': 'Token',
+        "Access-Control-Allow-Origin": "*",
+  
+    }
+  };
 const LandingScreen1 = () => {
     // const [submit, Setsubmit] = useState(false);
     const [input, setInput] = useState('')
@@ -33,10 +43,25 @@ const LandingScreen1 = () => {
     //         Setsubmit(false)
     //     }
     // }, [submit])
-    const Submit = async () => {
+    const Submit = async() => {
         try{
+
             console.log(input)
-            axios.post("http://77.243.85.175:3001/email", {email: input}).then(() => {console.log("sent to backend")})
+            axios({
+                method: 'post',
+                url: 'http://77.243.85.175:3001/email',
+                headers: axiosConfig,
+                data: {email: input}
+            })
+            .then((res) => {
+                const message = res.data;
+                alert(message);
+          
+          
+          
+            })
+            //let r = await api.post("/email", {email: input}).then(() => {console.log("sent to backend")})
+            //console.log(r)
         }
         catch(err){
             console.log(err)
