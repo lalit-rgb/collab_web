@@ -4,6 +4,7 @@ import './LandingScreen1.css'
 import Navigation from "../components/navigation";
 import Api from "../node/ex"
 import Button from "../components/button";
+import axios from "axios";
 import { Data } from "../components/data";
 import Grow from "@material-ui/core/Grow";
 
@@ -35,22 +36,7 @@ const LandingScreen1 = () => {
     const Submit = async () => {
         try{
             console.log(input)
-            Api.post("/email", {email: input}).catch(function (error) {
-                if (error.response) {
-                  // Request made and server responded
-                  console.log(error.response.data);
-                  console.log(error.response.status);
-                  console.log(error.response.headers);
-                } else if (error.request) {
-                  // The request was made but no response was received
-                  console.log(error.request);
-                } else {
-                  // Something happened in setting up the request that triggered an Error
-                  console.log('Error', error.message);
-                }
-            
-              })
-            
+            axios.post("http://77.243.85.175:3001/email", {email: input}).then(() => {console.log("sent to backend")})
         }
         catch(err){
             console.log(err)
